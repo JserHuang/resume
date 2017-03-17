@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>commit list</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1>Latest Vue.js Commits</h1>
+		<template v-for="val in branches">
+			<input type="radio" name="branch" :value="val" v-model="currentBranch" :id="val">
+			<label :for="val">{{ val }}</label>
+		</template>
+		<ul>
+			<li v-for="record in commits">
+				<a :href="record.html_url">{{ record.sha.slice(0, 7) }}</a>
+				- <span>{{ record.commit.message }}</span>
+				<br>
+				<span> by <a :href="record.author.html_url">{{ record.commit.author.name}}</a> at {{ record.commit.author.date | splitStr }}</span>
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="./bundle.js"></script>
+</body>
+</html>

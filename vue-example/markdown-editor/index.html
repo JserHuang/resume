@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Markdown Editor</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		html,
+		body{
+			height: 100%;
+		}
+
+		#app{
+			width: 800px;
+			margin: 100px auto;
+			height: 100%;
+		}
+		textarea{
+			resize: none;
+			width: 50%;
+			display: block;
+			float: left;
+			height: 70%;
+			box-sizing: border-box;
+			font-size: 25px;
+		}
+		div>div{
+			box-sizing: border-box;
+			border: 1px solid #333;
+			float: left;
+			width: 50%;
+			height: 70%;
+			padding-left: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<textarea v-model="content" autofocus v-on:keydown.tab.prevent></textarea>
+		<div v-html="getMdContent"></div>
+	</div>
+
+	<script type="text/javascript" src="./bundle.js"></script>
+</body>
+</html>
